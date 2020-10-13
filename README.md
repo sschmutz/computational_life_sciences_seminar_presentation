@@ -56,4 +56,4 @@ For discussion, now or after the presentation: What do you think could be drawba
 
 
 # get pdf of xaringan presentation
-pagedown::chrome_print("presentation.Rmd")
+pagedown::chrome_print("index.Rmd")
