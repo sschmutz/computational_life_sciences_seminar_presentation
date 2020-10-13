@@ -1,0 +1,50 @@
+---
+title: |
+  | Inferring whole-genome histories in large population datasets
+  | @kelleher_inferring_2019
+
+bibliography: bibliography.bib
+csl: elsevier-harvard.csl
+geometry: margin=2cm
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+
+# set option to not include R code in the output file
+knitr::opts_chunk$set(echo = FALSE)
+
+```
+
+## Terms and Abbreviations
+>You define the important terms and abbreviations that are used in your paper.
+
+\begin{tabular}{cl}
+$\pi$ & steady-state distribution of nucleotides (frequencies) \\
+$P$ & transition probability matrix \\
+$v$ & evolutionary distance (expected substitutions per site) \\
+$S$ & transitional differences (frequencies) \\
+$V$ & transversional differences (frequencies) \\
+$\kappa$ & transition transversion rate ratio \\
+$Q$ & substitution rate matrix \\
+$q_{ij}$ & substitution rate from nucleotide i to j \\
+$q_{ii}$ & diagonal element of substitution rate matrix ($i = j$) \\
+$\mu$ & rescaling factor \\
+$L$ & likelihood \\
+$\ell$ & log-likelihood ($\log_e$) \\
+$Pr_{site}$ & probability of observing nucleotide i and j at a given site of the alignment \\
+$p_{ij}$ & probability of substitution of nucleotide i to j \\
+\end{tabular}
+
+## Context
+>You shortly describe the context of the paper, i.e. the area of topics where it can be of interest.
+
+## Main Points
+>You summarise the main points.
+
+
+
+
+\newpage
+
+## References
