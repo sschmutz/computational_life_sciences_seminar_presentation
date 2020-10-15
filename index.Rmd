@@ -17,9 +17,20 @@ output:
 
 
 ```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(fig.retina = 3)
+
 options(htmltools.dir.version = FALSE)
 
 xaringanExtra::use_xaringan_extra(c("tile_view", "tachyons"))
+
+library(tidyverse)
+library(xaringanthemer)
+
+style_mono_accent(
+  header_font_google = google_font("Cabin"),
+  text_font_google   = google_font("Noto Sans")
+)
 ```
 
 background-image: url(figures/title.png)
@@ -42,7 +53,8 @@ class: center, middle
 
 ???
 
-What does it reveal? If we look at it, quite a lot.
+What does it reveal? As it turns out quite a lot.  
+Let's have a look at it bit-by-bit.
 
 
 ---
@@ -56,12 +68,26 @@ What does it reveal? If we look at it, quite a lot.
 knitr::include_graphics("figures/inferring_adjusted2.jpg")
 ```
 
+???
 
+The authors apply a model (result might not be 100% accurate, but a good guess/hypothesis)
 
 
 ---
 
 ## .moon-gray[.bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[Inferring]] .bg-washed-yellow.b--yellow.ba.bw2.br3.ph2.pv1[whole-genome] .moon-gray[.bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[histories] in .bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[large population datasets]]
+
+```{r fig.cap="source: National Human Genome Research Institute", echo=FALSE, out.width="400px", fig.align="center"}
+knitr::include_graphics("figures/Karyotype.png")
+```
+
+???
+
+Here they work with whole-genome data from humans.  
+The human genome (blueprint for an individual) consists of 23 chromosome pairs (it's diploid) which are made of DNA.  
+DNA in turn consists of four bases (A, T, G, C) and it's order of those bases (sequence) can be determined using DNA sequencing methods.  
+We carry parts of the genome from both of our parents in us.  
+
 
 
 ---
@@ -69,9 +95,49 @@ knitr::include_graphics("figures/inferring_adjusted2.jpg")
 ## .moon-gray[.bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[Inferring] .bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[whole-genome]] .bg-washed-green.b--dark-green.ba.bw2.br3.ph2.pv1[histories] .moon-gray[in .bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[large population datasets]]
 
 
+???
+
+Over time the DNA sequence can change (evolutionary process).  
+TODO: mention mutation and recombination, what is it and when do they occur.
+Observing these changes of the DNA allows us to reconstruct history (genealogy).  
+A way to visualize this history is through phylogenetic trees.  
+TODO: Show and explain example of a phylogenetic tree (you might remember the programming project last year). Probably on a second slide.
+
 ---
 
 ## .moon-gray[.bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[Inferring] .bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[whole-genome] .bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[histories] in] .bg-lightest-blue.b--blue.ba.bw2.br3.ph2.pv1[large population datasets]
+
+<br/>
+
+```{r data-sets, echo=FALSE, fig.align="center", fig.height=6, fig.width=10}
+data_sets <-
+  tribble(
+    ~data_set, ~n,
+    "Simons Genome Diversity Project", 277,
+    "1000 Genomes Project", 2504,
+    "UK Biobank", 487000
+  )
+
+data_sets %>%
+  mutate(data_set = fct_reorder(data_set, desc(n))) %>%
+  ggplot(aes(x = data_set, y = n)) +
+  geom_col(fill = "#cdecff", colour = "#357edd", size = 1.5, alpha = 0.7) +
+  geom_text(aes(label = scales::comma(n, big.mark = "'")), hjust = 1.5, size = 8, family = "Noto Sans") +
+  scale_y_log10(labels = scales::comma_format(big.mark = "'")) +
+  coord_flip() +
+  theme_xaringan() +
+  theme(axis.text = element_text(size = 14),
+        axis.title = element_text(size = 17)) +
+  labs(x = NULL, y = "n")
+```
+
+
+
+???
+
+In recent years, new methods were developed to sequence DNA much faster.  
+A consequence of that is, that the size of available data sets grew at a high rate.  
+With larger data sets, more efficient algorithms (time and storage space) are needed.  
 
 ---
 
@@ -84,4 +150,4 @@ class: center, middle
 
 ???
 
-Summarise
+Summarize

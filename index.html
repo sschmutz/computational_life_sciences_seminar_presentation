@@ -5,7 +5,6 @@
     <meta charset="utf-8" />
     <meta name="author" content="Stefan Schmutz" />
     <meta name="date" content="2020-11-16" />
-    <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
     <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
@@ -47,7 +46,8 @@ class: center, middle
 
 ???
 
-What does it reveal? If we look at it, quite a lot.
+What does it reveal? As it turns out quite a lot.  
+Let's have a look at it bit-by-bit.
 
 
 ---
@@ -62,12 +62,27 @@ What does it reveal? If we look at it, quite a lot.
 &lt;p class="caption"&gt;source: thesaurus.com&lt;/p&gt;
 &lt;/div&gt;
 
+???
 
+The authors apply a model (result might not be 100% accurate, but a good guess/hypothesis)
 
 
 ---
 
 ## .moon-gray[.bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[Inferring]] .bg-washed-yellow.b--yellow.ba.bw2.br3.ph2.pv1[whole-genome] .moon-gray[.bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[histories] in .bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[large population datasets]]
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="figures/Karyotype.png" alt="source: National Human Genome Research Institute" width="400px" /&gt;
+&lt;p class="caption"&gt;source: National Human Genome Research Institute&lt;/p&gt;
+&lt;/div&gt;
+
+???
+
+Here they work with whole-genome data from humans.  
+The human genome (blueprint for an individual) consists of 23 chromosome pairs (it's diploid) which are made of DNA.  
+DNA in turn consists of four bases (A, T, G, C) and it's order of those bases (sequence) can be determined using DNA sequencing methods.  
+We carry parts of the genome from both of our parents in us.  
+
 
 
 ---
@@ -75,9 +90,29 @@ What does it reveal? If we look at it, quite a lot.
 ## .moon-gray[.bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[Inferring] .bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[whole-genome]] .bg-washed-green.b--dark-green.ba.bw2.br3.ph2.pv1[histories] .moon-gray[in .bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[large population datasets]]
 
 
+???
+
+Over time the DNA sequence can change (evolutionary process).  
+TODO: mention mutation and recombination, what is it and when do they occur.
+Observing these changes of the DNA allows us to reconstruct history (genealogy).  
+A way to visualize this history is through phylogenetic trees.  
+TODO: Show and explain example of a phylogenetic tree (you might remember the programming project last year). Probably on a second slide.
+
 ---
 
 ## .moon-gray[.bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[Inferring] .bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[whole-genome] .bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[histories] in] .bg-lightest-blue.b--blue.ba.bw2.br3.ph2.pv1[large population datasets]
+
+&lt;br/&gt;
+
+&lt;img src="index_files/figure-html/data-sets-1.png" width="720" style="display: block; margin: auto;" /&gt;
+
+
+
+???
+
+In recent years, new methods were developed to sequence DNA much faster.  
+A consequence of that is, that the size of available data sets grew at a high rate.  
+With larger data sets, more efficient algorithms (time and storage space) are needed.  
 
 ---
 
@@ -90,7 +125,7 @@ class: center, middle
 
 ???
 
-Summarise
+Summarize
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
