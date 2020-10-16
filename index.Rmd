@@ -16,6 +16,7 @@ output:
 
 
 
+
 ```{r setup, include=FALSE}
 
 knitr::opts_chunk$set(fig.retina = 3)
@@ -46,6 +47,12 @@ p.caption {
 }
 </style>
 
+???
+
+Hi everyone. Please interrupt me anytime if you'd like to ask something.  
+
+Today, I'd like to present this article by Kelleher and colleagues which was published last year and carries the title "Inferring whole-genome hisories in large population data sets"
+
 ---
 class: center, middle
 
@@ -53,7 +60,10 @@ class: center, middle
 
 ???
 
-What does it reveal? As it turns out quite a lot.  
+What does it reveal about the contents of the article?  
+
+As it turns out quite a lot.  
+
 Let's have a look at it bit-by-bit.
 
 
@@ -70,8 +80,10 @@ knitr::include_graphics("figures/inferring_adjusted2.jpg")
 
 ???
 
-The authors apply a model (result might not be 100% accurate, but a good guess/hypothesis)
+*Inferring* in this context means that:
 
+The authors apply a model (result might therefore not be 100% accurate, but it's a **good guess/hypothesis**)
+**TODO: check if it's correct to say "apply a model" or if there's a better way to describe this**
 
 ---
 
@@ -83,12 +95,43 @@ knitr::include_graphics("figures/Karyotype.png")
 
 ???
 
+Next, *whole-genome*  
+
 Here they work with whole-genome data from humans.  
-The human genome (blueprint for an individual) consists of 23 chromosome pairs (it's diploid) which are made of DNA.  
-DNA in turn consists of four bases (A, T, G, C) and it's order of those bases (sequence) can be determined using DNA sequencing methods.  
-We carry parts of the genome from both of our parents in us.  
+The human genome (blueprint for an individual) consists of 23 chromosome pairs (it's diploid), shown in this figure, which are made of DNA.  
+DNA in turn consists of four bases (A, T, G, C) and, it's order of those bases (sequence) can be determined using DNA sequencing methods.  
+
+Since we're a sexually reproducing species, we carry parts of the genome from both of our parents in us.  
 
 
+
+---
+
+## .moon-gray[.bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[Inferring] .bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[whole-genome]] .bg-washed-green.b--dark-green.ba.bw2.br3.ph2.pv1[histories] .moon-gray[in .bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[large population datasets]]
+
+--
+
+<br/>
+
+```{r fig.cap="source: Kelleher et al., 2019", echo=FALSE, out.width="400px", fig.align="center"}
+knitr::include_graphics("figures/fig_1_b_wo_caption.png")
+```
+
+???
+
+
+
+Over time the DNA sequence can change (evolutionary process).  
+Observing these changes of the DNA allows us to reconstruct history (genealogy).  
+A way to visualize this history is through phylogenetic trees.  
+
+Let's look at the following scenario an example of a phylogenetic tree:  
+- we have gathered whole-genome sequence information of 5 individuals (*a-e*)
+- we compare those 5 sequences with each other and list the differences (*orange diamonds*)
+- based on those differences we can infer the history and common ancestors (*f-i*)  
+
+Our model therefore predicts, that the earliest common ancestor of those 5 individuals is *i*.  
+On the left hand side there happened changes at position 5 and 1 which led to a hypothetical individual *h* and so on.  
 
 ---
 
@@ -97,11 +140,12 @@ We carry parts of the genome from both of our parents in us.
 
 ???
 
-Over time the DNA sequence can change (evolutionary process).  
-TODO: mention mutation and recombination, what is it and when do they occur.
-Observing these changes of the DNA allows us to reconstruct history (genealogy).  
-A way to visualize this history is through phylogenetic trees.  
-TODO: Show and explain example of a phylogenetic tree (you might remember the programming project last year). Probably on a second slide.
+There are several different forms of DNA changes.  
+Here I'll show two of them:  
+
+- SNPs  
+- recombination
+**TODO: mention mutation and recombination, what is it and when do they occur.**  
 
 ---
 
@@ -122,7 +166,7 @@ data_sets %>%
   mutate(data_set = fct_reorder(data_set, desc(n))) %>%
   ggplot(aes(x = data_set, y = n)) +
   geom_col(fill = "#cdecff", colour = "#357edd", size = 1.5, alpha = 0.7) +
-  geom_text(aes(label = scales::comma(n, big.mark = "'")), hjust = 1.5, size = 8, family = "Noto Sans") +
+  geom_text(aes(label = scales::comma(n, big.mark = "'")), hjust = 1.5, size = 8, fontface = "bold", family = "Noto Sans") +
   scale_y_log10(labels = scales::comma_format(big.mark = "'")) +
   coord_flip() +
   theme_xaringan() +
@@ -136,6 +180,7 @@ data_sets %>%
 ???
 
 In recent years, new methods were developed to sequence DNA much faster.  
+**TODO: Maybe add another slide before the data set numbers tho show the trend/trhoughput of sequencing**  
 A consequence of that is, that the size of available data sets grew at a high rate.  
 With larger data sets, more efficient algorithms (time and storage space) are needed.  
 

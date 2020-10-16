@@ -5,12 +5,15 @@
 ? Sequencing technology
 
 ### Explain terms
+- "DNA"
+- "DNA sequencing"
 - "genealogical history" - a familytree
 - "recombination"/"mutation" - insertion/deletion, copy number variant, single-nucleotide polymorphisms
 - "allele"
 - "phylogenetic tree" - way to show genealogical history
 - "(ancestral) haplotypes"
 - "succinct tree sequence"
+- "ancestral recombination graph (ARG)"
 
 ?
 - "focal site"
