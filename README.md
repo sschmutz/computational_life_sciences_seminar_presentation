@@ -7,6 +7,7 @@
 ### Explain terms
 - "DNA"
 - "DNA sequencing"
+- "Human Genome"
 - "genealogical history" - a familytree
 - "recombination"/"mutation" - insertion/deletion, copy number variant, single-nucleotide polymorphisms
 - "allele"

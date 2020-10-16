@@ -29,6 +29,7 @@ library(tidyverse)
 library(xaringanthemer)
 
 style_mono_accent(
+  base_color = "#000000",
   header_font_google = google_font("Cabin"),
   text_font_google   = google_font("Noto Sans")
 )
@@ -42,7 +43,7 @@ background-size: 75%
 <!-- set style for all following captions --> 
 <style>
 p.caption {
-  font-size: 0.7em;
+  font-size: 0.6em;
   font-style: italic;
 }
 </style>
@@ -82,7 +83,7 @@ knitr::include_graphics("figures/inferring_adjusted2.jpg")
 
 *Inferring* in this context means that:
 
-The authors apply a model (result might therefore not be 100% accurate, but it's a **good guess/hypothesis**)
+The authors apply a model (result might therefore not be 100% accurate, but it's a **good guess/hypothesis**)  
 **TODO: check if it's correct to say "apply a model" or if there's a better way to describe this**
 
 ---
@@ -109,6 +110,12 @@ Since we're a sexually reproducing species, we carry parts of the genome from bo
 
 ## .moon-gray[.bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[Inferring] .bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[whole-genome]] .bg-washed-green.b--dark-green.ba.bw2.br3.ph2.pv1[histories] .moon-gray[in .bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[large population datasets]]
 
+???
+
+Over time the DNA sequence can change (evolutionary process).  
+Observing these changes of the DNA allows us to reconstruct history (genealogy).  
+A way to visualize this history is through phylogenetic trees.  
+
 --
 
 <br/>
@@ -118,12 +125,6 @@ knitr::include_graphics("figures/fig_1_b_wo_caption.png")
 ```
 
 ???
-
-
-
-Over time the DNA sequence can change (evolutionary process).  
-Observing these changes of the DNA allows us to reconstruct history (genealogy).  
-A way to visualize this history is through phylogenetic trees.  
 
 Let's look at the following scenario an example of a phylogenetic tree:  
 - we have gathered whole-genome sequence information of 5 individuals (*a-e*)
@@ -143,9 +144,38 @@ On the left hand side there happened changes at position 5 and 1 which led to a 
 There are several different forms of DNA changes.  
 Here I'll show two of them:  
 
-- SNPs  
+- mutation  
 - recombination
 **TODO: mention mutation and recombination, what is it and when do they occur.**  
+
+---
+
+## .moon-gray[.bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[Inferring] .bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[whole-genome] .bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[histories] in] .bg-lightest-blue.b--blue.ba.bw2.br3.ph2.pv1[large population datasets]
+
+<br/>
+
+```{r sequencing-costs, fig.cap="source: genome.gov/sequencingcosts", echo=FALSE, fig.align="center", fig.height=6, fig.width=10, message=FALSE}
+
+sequencing_cost <-
+  read_csv("data/Sequencing_Cost_Data_May2020.csv")
+
+sequencing_cost %>%
+  ggplot(aes(x = Date, y = `Cost per Genome`)) +
+  geom_line(size = 1.5, colour = "#357edd") +
+  scale_y_log10(labels=scales::dollar_format(big.mark = "'"), limits = c(1E1, 1E8)) +
+  theme_xaringan() +
+  theme(axis.text = element_text(size = 14),
+        axis.title = element_text(size = 17)) +
+  labs(x = NULL, y = "Cost per Human Genome")
+
+```
+
+
+
+???
+
+In recent years, new methods were developed to sequence DNA much faster and cheaper.  
+Note that the y-axis is shown as log scale! The decrease in price is enormous.
 
 ---
 
@@ -179,15 +209,31 @@ data_sets %>%
 
 ???
 
-In recent years, new methods were developed to sequence DNA much faster.  
-**TODO: Maybe add another slide before the data set numbers tho show the trend/trhoughput of sequencing**  
 A consequence of that is, that the size of available data sets grew at a high rate.  
-With larger data sets, more efficient algorithms (time and storage space) are needed.  
+With larger data sets, more efficient algorithms (in respect to time and storage space) are needed.  
 
 ---
 
 # Current situation
 
+- Many methods to infer phylogenetic trees
+- A single tree however can't describe recombination processes, a network is required -> ancestral recombination graph (ARG)
+- ARGs can't be applied to infer large networks, since they're computationally expensive
+
+
+.pull-left[ 
+.center[Tree]
+```{r fig.cap="source: Adapted from Morrison, 2016", echo=FALSE, out.width="400px", fig.align="center"}
+knitr::include_graphics("figures/morrison_2016_tree.svg")
+```
+]
+--
+.pull-right[
+.center[Network]
+```{r fig.cap="source: Adapted from Morrison, 2016", echo=FALSE, out.width="400px", fig.align="center"}
+knitr::include_graphics("figures/morrison_2016_network.svg")
+```
+]
 ---
 class: center, middle
 

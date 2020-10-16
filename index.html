@@ -36,7 +36,7 @@ background-size: 75%
 &lt;!-- set style for all following captions --&gt; 
 &lt;style&gt;
 p.caption {
-  font-size: 0.7em;
+  font-size: 0.6em;
   font-style: italic;
 }
 &lt;/style&gt;
@@ -77,7 +77,7 @@ Let's have a look at it bit-by-bit.
 
 *Inferring* in this context means that:
 
-The authors apply a model (result might therefore not be 100% accurate, but it's a **good guess/hypothesis**)
+The authors apply a model (result might therefore not be 100% accurate, but it's a **good guess/hypothesis**)  
 **TODO: check if it's correct to say "apply a model" or if there's a better way to describe this**
 
 ---
@@ -105,6 +105,12 @@ Since we're a sexually reproducing species, we carry parts of the genome from bo
 
 ## .moon-gray[.bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[Inferring] .bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[whole-genome]] .bg-washed-green.b--dark-green.ba.bw2.br3.ph2.pv1[histories] .moon-gray[in .bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[large population datasets]]
 
+???
+
+Over time the DNA sequence can change (evolutionary process).  
+Observing these changes of the DNA allows us to reconstruct history (genealogy).  
+A way to visualize this history is through phylogenetic trees.  
+
 --
 
 &lt;br/&gt;
@@ -115,12 +121,6 @@ Since we're a sexually reproducing species, we carry parts of the genome from bo
 &lt;/div&gt;
 
 ???
-
-
-
-Over time the DNA sequence can change (evolutionary process).  
-Observing these changes of the DNA allows us to reconstruct history (genealogy).  
-A way to visualize this history is through phylogenetic trees.  
 
 Let's look at the following scenario an example of a phylogenetic tree:  
 - we have gathered whole-genome sequence information of 5 individuals (*a-e*)
@@ -140,9 +140,27 @@ On the left hand side there happened changes at position 5 and 1 which led to a 
 There are several different forms of DNA changes.  
 Here I'll show two of them:  
 
-- SNPs  
+- mutation  
 - recombination
 **TODO: mention mutation and recombination, what is it and when do they occur.**  
+
+---
+
+## .moon-gray[.bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[Inferring] .bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[whole-genome] .bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[histories] in] .bg-lightest-blue.b--blue.ba.bw2.br3.ph2.pv1[large population datasets]
+
+&lt;br/&gt;
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="index_files/figure-html/sequencing-costs-1.png" alt="source: genome.gov/sequencingcosts" width="720" /&gt;
+&lt;p class="caption"&gt;source: genome.gov/sequencingcosts&lt;/p&gt;
+&lt;/div&gt;
+
+
+
+???
+
+In recent years, new methods were developed to sequence DNA much faster and cheaper.  
+Note that the y-axis is shown as log scale! The decrease in price is enormous.
 
 ---
 
@@ -156,15 +174,33 @@ Here I'll show two of them:
 
 ???
 
-In recent years, new methods were developed to sequence DNA much faster.  
-**TODO: Maybe add another slide before the data set numbers tho show the trend/trhoughput of sequencing**  
 A consequence of that is, that the size of available data sets grew at a high rate.  
-With larger data sets, more efficient algorithms (time and storage space) are needed.  
+With larger data sets, more efficient algorithms (in respect to time and storage space) are needed.  
 
 ---
 
 # Current situation
 
+- Many methods to infer phylogenetic trees
+- A single tree however can't describe recombination processes, a network is required -&gt; ancestral recombination graph (ARG)
+- ARGs can't be applied to infer large networks, since they're computationally expensive
+
+
+.pull-left[ 
+.center[Tree]
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="figures/morrison_2016_tree.svg" alt="source: Adapted from Morrison, 2016" width="400px" /&gt;
+&lt;p class="caption"&gt;source: Adapted from Morrison, 2016&lt;/p&gt;
+&lt;/div&gt;
+]
+--
+.pull-right[
+.center[Network]
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="figures/morrison_2016_network.svg" alt="source: Adapted from Morrison, 2016" width="400px" /&gt;
+&lt;p class="caption"&gt;source: Adapted from Morrison, 2016&lt;/p&gt;
+&lt;/div&gt;
+]
 ---
 class: center, middle
 
