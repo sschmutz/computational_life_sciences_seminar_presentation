@@ -195,9 +195,11 @@ data_sets <-
 data_sets %>%
   mutate(data_set = fct_reorder(data_set, desc(n))) %>%
   ggplot(aes(x = data_set, y = n)) +
-  geom_col(fill = "#cdecff", colour = "#357edd", size = 1.5, alpha = 0.7) +
-  geom_text(aes(label = scales::comma(n, big.mark = "'")), hjust = 1.5, size = 8, fontface = "bold", family = "Noto Sans") +
+  geom_segment(aes(xend = data_set, yend = 1), colour = "darkgrey", size = 2) +
+  geom_point(fill = "#cdecff", colour = "#357edd", size = 6, stroke = 2, shape = 21) +
+  geom_text(aes(label = scales::comma(n, big.mark = "'")), vjust = -0.7, size = 8, fontface = "bold", family = "Noto Sans") +
   scale_y_log10(labels = scales::comma_format(big.mark = "'")) +
+  expand_limits(y = c(1, 1000000)) +
   coord_flip() +
   theme_xaringan() +
   theme(axis.text = element_text(size = 14),
