@@ -24,6 +24,7 @@ knitr::opts_chunk$set(fig.retina = 3)
 options(htmltools.dir.version = FALSE)
 
 xaringanExtra::use_xaringan_extra(c("tile_view", "tachyons"))
+xaringanExtra::use_editable(expires = 1)
 
 library(tidyverse)
 library(xaringanthemer)
@@ -490,6 +491,27 @@ class: center, middle
 
 # Appendix
 
+
+---
+# (Dis)Advantages of open source code and data
+
+.pull-left[
+### &#x1f44d;
+
+.can-edit.key-likes[
+- replicability of results  
+- 
+]
+]
+
+.pull-right[
+### &#x1f44e;
+
+.can-edit.key-dislikes[
+- sensitive data not protected  
+- 
+]
+]
 ---
 class: center, middle
 
