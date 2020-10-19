@@ -95,10 +95,7 @@ Next, *whole-genome*
 
 Here they work with whole-genome data from humans.  
 The human genome (blueprint for an individual) consists of 23 chromosome pairs (it's diploid), shown in this figure, which are made of DNA.  
-DNA in turn consists of four bases (A, T, G, C) and, it's order of those bases (sequence) can be determined using DNA sequencing methods.  
-
-Since we're a sexually reproducing species, we carry parts of the genome from both of our parents in us.  
-
+DNA in turn consists of four bases (A, T, G, C) and the order of those bases (also called sequence) can be determined using DNA sequencing methods.  
 
 
 ---
@@ -106,7 +103,7 @@ Since we're a sexually reproducing species, we carry parts of the genome from bo
 ## .moon-gray[.bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[Inferring] .bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[whole-genome]] .bg-washed-green.b--dark-green.ba.bw2.br3.ph2.pv1[histories] .moon-gray[in .bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[large population datasets]]
 
 ???
-
+Histories in terms of DNA evolution.  
 Over time the DNA sequence can change (evolutionary process).  
 Observing these changes of the DNA allows us to reconstruct history (genealogy).  
 A way to visualize this history is through phylogenetic trees.  
@@ -123,26 +120,56 @@ A way to visualize this history is through phylogenetic trees.
 ???
 
 Let's look at the following scenario an example of a phylogenetic tree:  
-- we have gathered whole-genome sequence information of 5 individuals (*a-e*)
+- we have gathered genetic sequence information of 5 individuals (*a-e*)
 - we compare those 5 sequences with each other and list the differences (*orange diamonds*)
-- based on those differences we can infer the history and common ancestors (*f-i*)  
+- based on those differences we can infer the history and hypothetical common ancestors (*f-i*)  
 
-Our model therefore predicts, that the earliest common ancestor of those 5 individuals is *i*.  
+This model therefore predicts, that the earliest common ancestor of those 5 individuals is *i*.  
 On the left hand side there happened changes at position 5 and 1 which led to a hypothetical individual *h* and so on.  
 
 ---
 
 ## .moon-gray[.bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[Inferring] .bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[whole-genome]] .bg-washed-green.b--dark-green.ba.bw2.br3.ph2.pv1[histories] .moon-gray[in .bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[large population datasets]]
 
+&lt;br/&gt;
+
+&lt;img src="figures/mutation_example.png" width="800px" style="display: block; margin: auto;" /&gt;
 
 ???
 
-There are several different forms of DNA changes.  
-Here I'll show two of them:  
+As mentioned before, DNA can change over time (mutates).  
+Such mutations here shown in red are derived from an ancestral sequence (in grey) or is passed on from either parent.  
+As seen on the previous slide, we can use these mutations to reconstruct history.  
 
-- mutation  
-- recombination
-**TODO: mention mutation and recombination, what is it and when do they occur.**  
+In this example we see a short (diploid) sequence of three individuals, two parents and a child.  
+C1 is likely inherited from P1. For C2 it's a bit more complex. In addition to the G6T mutation which was not observed before, the first half seems to come from P2 while the second half likely from M2.  
+
+Unfortunately, this is another process which makes reconstructing history difficult: ...
+
+---
+
+## .moon-gray[.bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[Inferring] .bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[whole-genome]] .bg-washed-green.b--dark-green.ba.bw2.br3.ph2.pv1[histories] .moon-gray[in .bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[large population datasets]]
+
+&lt;br/&gt;
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="figures/recombination.png" alt="source: genome.gov" width="600px" /&gt;
+&lt;p class="caption"&gt;source: genome.gov&lt;/p&gt;
+&lt;/div&gt;
+
+???
+
+...Recombination  
+Turns out that paternal and maternal genetic material can cross over (recombine)  
+As this happens over multiple generations, a mosaic is created.  
+
+&gt; Chromosomes can be thought of as mosaics made up of material inherited from multiple ancestors.  
+&gt; \- Wilder Wohns
+
+Representing history with a single (accurate) tree is therefore not possible anymore.
+
+**Special methods are needed to solve this issue, which is the main thing this article describes**
+
 
 ---
 
@@ -175,40 +202,282 @@ Note that the y-axis is shown as log scale! The decrease in price is enormous.
 ???
 
 A consequence of that is, that the size of available data sets grew at a high rate.  
-With larger data sets, more efficient algorithms (in respect to time and storage space) are needed.  
+With larger data sets, more efficient algorithms (in respect to speed and storage space) are needed.  
 
 ---
-
+class: center
 # Current situation
 
-- Many methods to infer phylogenetic trees
-- A single tree however can't describe recombination processes, a network is required -&gt; ancestral recombination graph (ARG)
-- ARGs can't be applied to infer large networks, since they're computationally expensive
-
+&lt;br/&gt;
 
 .pull-left[ 
-.center[Tree]
+Tree
 &lt;div class="figure" style="text-align: center"&gt;
 &lt;img src="figures/morrison_2016_tree.svg" alt="source: Adapted from Morrison, 2016" width="400px" /&gt;
 &lt;p class="caption"&gt;source: Adapted from Morrison, 2016&lt;/p&gt;
 &lt;/div&gt;
 ]
+
+???
+
+- Many methods to infer phylogenetic trees  
+- They however exclude/neglect the possibility of recombination (by e.g. building trees from short fragments where recombination can be excluded, or assumed to be minimal)  
+
+
 --
 .pull-right[
-.center[Network]
+Network
 &lt;div class="figure" style="text-align: center"&gt;
 &lt;img src="figures/morrison_2016_network.svg" alt="source: Adapted from Morrison, 2016" width="400px" /&gt;
 &lt;p class="caption"&gt;source: Adapted from Morrison, 2016&lt;/p&gt;
 &lt;/div&gt;
 ]
+
+???
+
+- To overcome this, a network is required -&gt; ancestral recombination graph (ARG)  
+- ARGs are limited (few tens of samples) and can't be applied to infer large networks, since they're computationally expensive
+- ARGs therefore rarely used in practice
+
+---
+class: center, middle
+
+# What's the Author's proposed **Solution**?
+
+???
+
+There's clearly room for new methods which overcome the current limitations.
+
+---
+class: center, middle
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="figures/tskit_logo.svg" alt="source: github.com/tskit-dev" width="400px" /&gt;
+&lt;p class="caption"&gt;source: github.com/tskit-dev&lt;/p&gt;
+&lt;/div&gt;
+
+???
+
+&gt;The **tskit** library provides the underlying functionality used to load, examine, and manipulate tree sequences.  
+&gt;
+&gt;**tskit** has both a Python and C API (Application Programming Interface).
+
+
+---
+class: center, middle
+
+# `tsinfer`
+
+???
+More specifically `tsinfer` (which is part of `tskit`)  
+
+tsinfer is a method which makes use of tree sequence structure from genome variation data without the previously mentioned barriers of ARGs  
+
+---
+## tree sequence
+
+.pull-left[ 
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="figures/kelleher_2018_fig_3_pt1.png" alt="source: Kelleher et al., 2018" width="400px" /&gt;
+&lt;p class="caption"&gt;source: Kelleher et al., 2018&lt;/p&gt;
+&lt;/div&gt;
+]
+
+???
+What is a tree sequence?  
+Equivalent to ancestral recombination graph (ARG)  
+But there's one tree for each part of the genome (separated by recombination events) since they have different ancestral histories  
+
+For example:  
+We have the sequence information of three individuals (0-2)  
+3 and 4 are ancestors, red stars are mutation events  
+On the bottom we see a genome of length 10 where at position 5 recombination happened  
+Since there's one recombination breakpoint, we can represent the data with two trees (top)  
+
+--
+
+.pull-right[
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="figures/kelleher_2018_fig_3_pt2.png" alt="source: Kelleher et al., 2018" width="440px" /&gt;
+&lt;p class="caption"&gt;source: Kelleher et al., 2018&lt;/p&gt;
+&lt;/div&gt;
+]
+
+???
+These trees can also be represented as the following data structure (everything which is needed is listed in those 4 tables)   
+One can go from representation on the left to right and vice versa  
+Optimized for storage use by discarding redundant information (succinct)  
+
+This data structure allows that statistics can be computed efficiently (eg. pairwise nucleotide diversity `\(\pi\)`) 
+
+---
+
+## Ancestral haplotype inference
+
+&lt;br/&gt;
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="figures/suppl_fig_17_top.png" alt="source: Kelleher et al., 2019" width="600px" /&gt;
+&lt;p class="caption"&gt;source: Kelleher et al., 2019&lt;/p&gt;
+&lt;/div&gt;
+
+???
+`tsinfer` infers ancestral haplotypes  
+Order haplotypes (how do they relate to each other):  
+Shorter/less frequent haplotypes hint that they're older  
+Reconstruct trees (output is tree sequence)
+
+---
+
+## Comparison to state-of-the-art .pull-right[**Storage Space**]
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="figures/fig_1.png" alt="source: Kelleher et al., 2019" width="550px" /&gt;
+&lt;p class="caption"&gt;source: Kelleher et al., 2019&lt;/p&gt;
+&lt;/div&gt;
+
+???
+Space needed to store genomic variation data. 
+
+---
+
+## Comparison to state-of-the-art .pull-right[**Accuracy** and **Speed**]
+
+&lt;br/&gt;
+
+.pull-left[
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="figures/fig_3_wo_genotyping_error.png" alt="source: Kelleher et al., 2019" width="470px" /&gt;
+&lt;p class="caption"&gt;source: Kelleher et al., 2019&lt;/p&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="figures/suppl_fig_8.png" alt="source: Kelleher et al., 2019" width="500px" /&gt;
+&lt;p class="caption"&gt;source: Kelleher et al., 2019&lt;/p&gt;
+&lt;/div&gt;
+]
+
+???
+comparable accuracy (using Kendall-Colijn (KC) metric, lower values indicate greater accuracy)   
+and speed when compared to state-of-the-art
+
+---
+class: center, middle
+
+# Application example
+
+???
+Where/how could ancestry inference be interesting?  
+
+Ancestry inference is of fundamental biological interest, how did evolution happen  
+
+---
+
+# UK Biobank population structure
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="figures/fig_5_a_b.png" alt="source: Kelleher et al., 2019" width="900px" /&gt;
+&lt;p class="caption"&gt;source: Kelleher et al., 2019&lt;/p&gt;
+&lt;/div&gt;
+
+---
+
+# Drawbacks
+## Assumptions
+- each variant has a single origin
+- mutation/recombination ratio is sufficiently high
+- haplotype frequency as proxy for relative age
+
+???
+- no independant (same) mutation events assumed (no homoplasic substitutions), recurrent and back mutations will not be handled well  
+- more mutations compared to recombinations, in order to use mutations as starting point for ancestor inference 
+- methods for dating genomic variants could be used (see next slide)
+
+---
+
+# Drawbacks
+## Cladogram vs. Phylogram vs. Chronogram
+&lt;br/&gt;
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="figures/cladogram_phylogram_chronogram.png" alt="source: Riutort, 2016" width="700px" /&gt;
+&lt;p class="caption"&gt;source: Riutort, 2016&lt;/p&gt;
+&lt;/div&gt;
+
+???
+The current output of `tsinfer` is a cladogram. Meaning nodes are sorted relative to each other but not according time or nucleotide differences.  
+
+---
+
+# Outlook
+### From topologies to branch lengths (`tsdate`)
+
+???
+There's ongoing work to implement this by one of the Authors (Wilder Wohns)
+
+--
+
+### Improved sequencing technologies
+
+???
+accurate long-read sequencing data could improve the method in the future
+
+--
+
+### Possible application for genomes of other Species?
+
+.pull-left[ 
+
+&lt;img src="figures/recombination_should_not_be_an_afterthought.png" width="600px" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+
+&lt;img src="figures/coalre.png" width="600px" style="display: block; margin: auto;" /&gt;
+]
+
+???
+Not restricted to human genomes, applied to *P. vivax* Genome Variation Project, also possible to apply for Viral genomes?!  
+The need seems to be around since viruses also recombine/reassort, see those two examples    
+
 ---
 class: center, middle
 
 ## .bg-washed-red.b--light-red.ba.bw2.br3.ph2.pv1[Inferring] .bg-washed-yellow.b--yellow.ba.bw2.br3.ph2.pv1[whole-genome] .bg-washed-green.b--dark-green.ba.bw2.br3.ph2.pv1[histories] in .bg-lightest-blue.b--blue.ba.bw2.br3.ph2.pv1[large population datasets]
 
 ???
+**TODO: Summarize the talk**
 
-Summarize
+---
+
+---
+class: center, middle
+
+# Appendix
+
+---
+class: center, middle
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="figures/kelleher_2018_fig_3.png" alt="source: Kelleher et al., 2018" width="700px" /&gt;
+&lt;p class="caption"&gt;source: Kelleher et al., 2018&lt;/p&gt;
+&lt;/div&gt;
+
+---
+class: center, middle
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="figures/kelleher_2018_fig_4.png" alt="source: Kelleher et al., 2018" width="700px" /&gt;
+&lt;p class="caption"&gt;source: Kelleher et al., 2018&lt;/p&gt;
+&lt;/div&gt;
+ 
+???
+ 
+Original tree vs. minimal tree (listing only current-alive individuals and their ancestors) 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

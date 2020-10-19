@@ -9,16 +9,24 @@
 - "DNA sequencing"
 - "Human Genome"
 - "genealogical history" - a familytree
-- "recombination"/"mutation" - insertion/deletion, copy number variant, single-nucleotide polymorphisms
+- "recombination"/"mutation" - single-nucleotide polymorphisms (SNP)
 - "allele"
 - "phylogenetic tree" - way to show genealogical history
+- "Topology"
+- "Cladogram" - Topology only
+- "Chronogram" - Topology and Divergence times
+- "Phylogram" - see Chronogram plus considering divergence rates
 - "(ancestral) haplotypes"
-- "succinct tree sequence"
+- "succinct tree sequence" / "tree sequence"
 - "ancestral recombination graph (ARG)"
+- "Application Programming Interface (API)"
+- ev. "state-of-the-art"
+- "Nodes, Edges" show tree and terms describing it
 
 ?
 - "focal site"
 - "sequence of marginal trees"
+- "prune and regraft"
 
 ## Aim (current situation)
 Current methods are limited (throughput), there's a need for scalable efficient methods
@@ -51,6 +59,7 @@ For discussion, now or after the presentation: What do you think could be drawba
 - embarassment of putting all your work out there
 - potential that someone else copies your work (use appropriate License)
 - sensitive information in data
+- if result can be replicated doesn't mean it's correct
 
 ## Drawbacks
 
@@ -61,3 +70,5 @@ For discussion, now or after the presentation: What do you think could be drawba
 
 # get pdf of xaringan presentation
 pagedown::chrome_print("index.Rmd")
+
+https://www.slideshare.net/iceub/les-dades-moleculars-i-larbre-de-la-vida-dels-regnes-als-dominis
