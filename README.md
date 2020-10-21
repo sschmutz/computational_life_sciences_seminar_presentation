@@ -7,7 +7,7 @@
 ### Explain terms
 - "DNA"
 - "DNA sequencing"
-- "Human Genome"
+- "(Human) Genome"
 - "genealogical history" - a familytree
 - "recombination"/"mutation" - single-nucleotide polymorphisms (SNP)
 - "allele"
