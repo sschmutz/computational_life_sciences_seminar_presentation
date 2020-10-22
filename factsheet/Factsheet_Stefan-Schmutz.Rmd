@@ -17,34 +17,56 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ## Terms and Abbreviations
->You define the important terms and abbreviations that are used in your paper.
 
-\begin{tabular}{cl}
-$\pi$ & steady-state distribution of nucleotides (frequencies) \\
-$P$ & transition probability matrix \\
-$v$ & evolutionary distance (expected substitutions per site) \\
-$S$ & transitional differences (frequencies) \\
-$V$ & transversional differences (frequencies) \\
-$\kappa$ & transition transversion rate ratio \\
-$Q$ & substitution rate matrix \\
-$q_{ij}$ & substitution rate from nucleotide i to j \\
-$q_{ii}$ & diagonal element of substitution rate matrix ($i = j$) \\
-$\mu$ & rescaling factor \\
-$L$ & likelihood \\
-$\ell$ & log-likelihood ($\log_e$) \\
-$Pr_{site}$ & probability of observing nucleotide i and j at a given site of the alignment \\
-$p_{ij}$ & probability of substitution of nucleotide i to j \\
-\end{tabular}
+```{=tex}
+{\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{p{0.2\textwidth}@{}p{0.75\textwidth}}
+Genome\dotfill & contains blueprint (genetic information) of an organism \\
+DNA\dotfill & molecule composed of four building blocks/nucleotides (adenine [A], thymine [T], cytosine [C] and guanine [G]) \\
+DNA sequencing\dotfill & process of determining the order (sequence) of nucleotides of a DNA molecule \\
+diploid\dotfill & organism containing two sets of each chromosome \\
+genealogy\dotfill & study of history of organisms (how did they evolve, how are they related) \\
+phylogenetic tree\dotfill & method to visualise evolutionary relationships (see Figure \ref{fig:tree}) \\
+topology\dotfill & arrangement/shape of a phylogenetic tree \\
+node\dotfill & point/individual within a tree (see Figure \ref{fig:tree}) \\
+edge\dotfill & lines connecting nodes of a tree  (see Figure \ref{fig:tree}) \\
+DNA mutation\dotfill & change in DNA sequence when compared to parent sequence \\
+DNA recombination\dotfill & when a DNA molecule gets parts of two different sources \\
+ancestral sequence\dotfill & original (past) DNA sequence of an ancestor \\
+derived sequence\dotfill & DNA sequence where changes happened over time in comparison to the ancestral sequence \\
+tree sequence\dotfill & set of multiple phylogenetic trees considering that different parts of a genome can have different histories \\
+VCF\dotfill & Variant Call Format, common format used in bioinformatics to store differences (variants) in DNA sequences\\
+KC metric\dotfill & Kendall-Colijn metric, compares topologies of trees (how close they are) \\
+GNN\dotfill & Genealogical Nearest Neighbors, composition of neighbors on the tree(s) \\
+phasing\dotfill & separate paternal and maternal DNA sequence when reconstructing a diploid genome \\
+sequence alignment\dotfill & arranging multiple sequences in a way that same regions are grouped \\
+haplotype\dotfill & part of the genome which was inherited from a single parent\\
+\end{tabular}}
+```
+
+
+```{r tree, fig.cap="Phylogenetic tree, adapted from Kelleher et al. (2019)", echo=FALSE, out.width="250px", fig.align="center"}
+
+knitr::include_graphics(here::here("figures/fig_1_b_wo_caption_adapted.png"))
+```
+
 
 ## Context
->You shortly describe the context of the paper, i.e. the area of topics where it can be of interest.
+
+DNA sequencing of genomes allows us to reconstruct the evolution of organisms. To do this, we need to focus on DNA mutations which occurred over time.
+
+Histories of DNA sequences can be depicted by a phylogenetic tree using multiple established methods.
+
+Instead of a tree, DNA evolution is often better represented as a network, since parts of the genomes can be exchanged by recombination events. There are models for such networks, they are however very computationally expensive and don't scale well with large amounts of data.
+
+With the recent advances in high throughput sequencing techniques there's a need for a more efficient approach.
 
 ## Main Points
->You summarise the main points.
 
+Kelleher and collegues present in this article the applicability of an efficient data structure, tree sequence, to infer genome histories without the restrictions of excluding recombination events.
 
+In addition to beeing accurate, the method presented is also very fast and scalable compared to available state-of-the-art tools.
 
+They demonstrate the functionality by characterizing data from three medium to large human genome datasets.
 
-\newpage
-
-## References
+## Reference
