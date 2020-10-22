@@ -116,8 +116,8 @@ A way to visualize this history is through phylogenetic trees.
 
 <br/>
 
-```{r fig.cap="source: Kelleher et al., 2019", echo=FALSE, out.width="400px", fig.align="center"}
-knitr::include_graphics("figures/fig_1_b_wo_caption.png")
+```{r fig.cap="source: Adapted from Kelleher et al., 2019", echo=FALSE, out.width="500px", fig.align="center"}
+knitr::include_graphics("figures/fig_1_b_wo_caption_adapted.png")
 ```
 
 ???
@@ -452,6 +452,10 @@ The authors have shown, on this large, real data set, that their method `tsinfer
 # Limitations
 
 <br/>
+
+### phased and aligned sequences as input
+
+--
 
 ### assumed each mutation has a single origin
 

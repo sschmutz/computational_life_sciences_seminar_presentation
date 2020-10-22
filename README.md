@@ -5,9 +5,9 @@
 ? Sequencing technology
 
 ### Explain terms
+- "(Human) Genome"
 - "DNA"
 - "DNA sequencing"
-- "(Human) Genome"
 - "genealogical history" - a familytree
 - "recombination"/"mutation" - single-nucleotide polymorphisms (SNP)
 - "allele"
