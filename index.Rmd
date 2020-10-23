@@ -481,7 +481,7 @@ methods for dating genomic variants could be used (see next slide)
 
 ---
 
-# Drawbacks
+# Limitations
 .center[
 ## **Cladogram** vs. **Phylogram** vs. **Chronogram**
 ]
