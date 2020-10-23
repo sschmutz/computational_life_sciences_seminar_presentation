@@ -1,0 +1,33 @@
+---
+title: |
+  | Inferring whole-genome histories in large population datasets
+  | @kelleher_inferring_2019
+
+bibliography: bibliography.bib
+csl: elsevier-harvard.csl
+geometry: margin=2cm
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+
+# set option to not include R code in the output file
+knitr::opts_chunk$set(echo = FALSE)
+
+```
+
+## Summary
+
+>Summarise the paper in your own words.
+
+## Reflection
+
+>Reflection on the process. What was most difficult in reading, preparation, presenting
+
+>How went your presentation? What are you happy with? What would you like to improve? What did you learn from the feedback form?
+
+>Reflection about your Q&A session.
+
+>Reflect how you could apply the paper’s content in your own field. What gaps would you have to fill?
+
+## References
