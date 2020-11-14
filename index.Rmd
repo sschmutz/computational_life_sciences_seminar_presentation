@@ -187,7 +187,7 @@ The different parts of the genome have different histories.
 
 <br/>
 
-```{r sequencing-costs, fig.cap="source: genome.gov/sequencingcosts", echo=FALSE, fig.align="center", fig.height=6, fig.width=10, message=FALSE}
+```{r sequencing-costs-1, fig.cap="source: genome.gov/sequencingcosts", echo=FALSE, fig.align="center", fig.height=6, fig.width=10, message=FALSE}
 
 sequencing_cost <-
   read_csv("data/Sequencing_Cost_Data_May2020.csv")
@@ -199,7 +199,13 @@ sequencing_cost %>%
   theme_xaringan() +
   theme(axis.text = element_text(size = 14),
         axis.title = element_text(size = 17)) +
-  labs(x = NULL, y = "Cost per Human Genome")
+  labs(x = NULL, y = "Cost per Human Genome") +
+  annotate(
+    x = as.Date("2001-07-01"), y = 1000000,
+    xend = as.Date("2003-04-01"), yend = 43000000, 
+    geom = "curve", curvature = -0.3, arrow = arrow(length = unit(3, "mm")), size = 0.8
+  ) +
+  annotate(geom = "text", x = as.Date("2001-06-01"), y = 350000, label = "first human genome\ncompleted*", hjust = "left", size = 6) 
 
 ```
 
@@ -208,10 +214,54 @@ sequencing_cost %>%
 ???
 Last part of the title *large population datasets*  
 
-In recent years, new methods were developed to sequence DNA much faster and cheaper.  
+Here you see the trend of cost per human genome sequenced and the time point where a first draft of the human genome was finished.  
+The decrease in price since then is enormous.  
 
+Note that the y-axis is shown as log scale!   
 Cost per Human Genome decreased drastically and is now below $1'000.  
-Note that the y-axis is shown as log scale! The decrease in price is enormous.
+
+What happened?
+
+---
+
+## .moon-gray[.bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[Inferring] .bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[whole-genome] .bg-near-white.b--moon-gray.ba.bw2.br3.ph2.pv1[histories] in] .bg-lightest-blue.b--blue.ba.bw2.br3.ph2.pv1[large population datasets]
+
+<br/>
+
+```{r sequencing-costs-2, fig.cap="source: genome.gov/sequencingcosts", echo=FALSE, fig.align="center", fig.height=6, fig.width=10, message=FALSE}
+
+sequencing_cost <-
+  read_csv("data/Sequencing_Cost_Data_May2020.csv")
+
+sequencing_cost %>%
+  ggplot(aes(x = Date, y = `Cost per Genome`)) +
+  geom_line(size = 1.5, colour = "#357edd") +
+  scale_y_log10(labels=scales::dollar_format(big.mark = "'"), limits = c(1E1, 1E8)) +
+  theme_xaringan() +
+  theme(axis.text = element_text(size = 14),
+        axis.title = element_text(size = 17)) +
+  labs(x = NULL, y = "Cost per Human Genome") +
+  annotate(
+    x = as.Date("2001-07-01"), y = 1000000,
+    xend = as.Date("2003-04-01"), yend = 43000000, 
+    geom = "curve", curvature = -0.3, arrow = arrow(length = unit(3, "mm")), size = 0.8
+  ) +
+  annotate(geom = "text", x = as.Date("2001-06-01"), y = 350000, label = "first human genome\ncompleted*", hjust = "left", size = 6) +
+  annotate(
+    x = as.Date("2010-01-01"), y = 70000000,
+    xend = as.Date("2006-01-01"), yend = 15000000, 
+    geom = "curve", curvature = 0.3, arrow = arrow(length = unit(3, "mm")), size = 0.8
+  ) +
+  annotate(geom = "text", x = as.Date("2010-02-01"), y = 35000000, label = "introduction of\nhigh throuput sequencing", hjust = "left", size = 6)
+
+```
+
+
+
+???
+
+In recent years, new methods were developed to sequence DNA much faster and cheaper.  
+So called high throughput or also next generation sequencing.  
 
 ---
 
@@ -370,8 +420,8 @@ tsinfer is a method which makes use of tree sequence structure from genome varia
 
 <br/>
 
-```{r fig.cap="source: Kelleher et al., 2019", echo=FALSE, out.width="600px", fig.align="center"}
-knitr::include_graphics("figures/suppl_fig_17_top.png")
+```{r fig.cap="source: Adapted from Kelleher et al., 2019", echo=FALSE, out.width="600px", fig.align="center"}
+knitr::include_graphics("figures/suppl_fig_17_top_adapted.png")
 ```
 
 ???
@@ -387,7 +437,7 @@ Main thing is: `tsinfer` reconstructs trees (output is tree sequence)
 ## Comparison to state-of-the-art .pull-right[**Storage Space**]
 
 ```{r fig.cap="source: Kelleher et al., 2019", echo=FALSE, out.width="550px", fig.align="center"}
-knitr::include_graphics("figures/fig_1.png")
+knitr::include_graphics("figures/fig_1_c.png")
 ```
 
 ???
