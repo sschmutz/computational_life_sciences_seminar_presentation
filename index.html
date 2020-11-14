@@ -11,7 +11,7 @@
     <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
     <script src="libs/tile-view/tile-view.js"></script>
     <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x3d5d61349984b3a8ea93f9892574e90","expires":1}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"cd1627aee52748d4abf5280559a82959","expires":1}</script>
     <script src="libs/himalaya/himalaya.js"></script>
     <script src="libs/js-cookie/js.cookie.js"></script>
     <link href="libs/editable/editable.css" rel="stylesheet" />
@@ -376,49 +376,6 @@ Second, haplotypes are arranged and edges (links between nodes) are inferred (tr
 Main thing is: `tsinfer` reconstructs trees (output is tree sequence)
 
 ---
-
-## Comparison to state-of-the-art .pull-right[**Storage Space**]
-
-&lt;div class="figure" style="text-align: center"&gt;
-&lt;img src="figures/fig_1_c.png" alt="source: Kelleher et al., 2019" width="550px" /&gt;
-&lt;p class="caption"&gt;source: Kelleher et al., 2019&lt;/p&gt;
-&lt;/div&gt;
-
-???
-Space needed to store genomic variation data.  
-
-VCF a popular format, stores the variants in matrices (see panel a), the complexity is O(n(nodes/samples) x m(variant sites))  
-
-Tree sequence encoding on the other hand (shown in panel b) is more space efficient, the complexity is O(n(nodes) + m(variant sites) + r(recombinations/new nodes))  
-
-As a result, file size of output remains much lower compared to VCF and is simmilar to Positional Burrows Wheeler Transform (PBWT) another recently developed data structure  
-
----
-
-## Comparison to state-of-the-art .pull-right[**Accuracy** and **Speed**]
-
-&lt;br/&gt;
-
-.pull-left[
-&lt;div class="figure" style="text-align: center"&gt;
-&lt;img src="figures/fig_3_wo_genotyping_error.png" alt="source: Kelleher et al., 2019" width="470px" /&gt;
-&lt;p class="caption"&gt;source: Kelleher et al., 2019&lt;/p&gt;
-&lt;/div&gt;
-]
-
-.pull-right[
-&lt;div class="figure" style="text-align: center"&gt;
-&lt;img src="figures/suppl_fig_8.png" alt="source: Kelleher et al., 2019" width="500px" /&gt;
-&lt;p class="caption"&gt;source: Kelleher et al., 2019&lt;/p&gt;
-&lt;/div&gt;
-]
-
-???
-comparable accuracy (using Kendall-Colijn (KC) metric, lower values indicate greater accuracy)   
-
-and speed when compared to state-of-the-art
-
----
 class: center, middle
 
 # Application example
@@ -503,14 +460,6 @@ There's already ongoing work to implement this by one of the Authors (Wilder Woh
 
 --
 
-### Improved sequencing technologies
-
-???
-accurate long-read sequencing data could improve the method in the future  
-(better phasing)
-
---
-
 ### Possible application for genomes of other Species
 
 .pull-left[ 
@@ -576,6 +525,52 @@ class: center, middle
 - 
 ]
 ]
+
+---
+
+## Comparison to state-of-the-art .pull-right[**Storage Space**]
+
+&lt;br/&gt;
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="figures/fig_1_c.png" alt="source: Kelleher et al., 2019" width="800px" /&gt;
+&lt;p class="caption"&gt;source: Kelleher et al., 2019&lt;/p&gt;
+&lt;/div&gt;
+
+???
+Space needed to store genomic variation data.  
+
+VCF a popular format, stores the variants in matrices (see panel a), the complexity is O(n(nodes/samples) x m(variant sites))  
+
+Tree sequence encoding on the other hand (shown in panel b) is more space efficient, the complexity is O(n(nodes) + m(variant sites) + r(recombinations/new nodes))  
+
+As a result, file size of output remains much lower compared to VCF and is simmilar to Positional Burrows Wheeler Transform (PBWT) another recently developed data structure  
+
+---
+
+## Comparison to state-of-the-art .pull-right[**Accuracy** and **Speed**]
+
+&lt;br/&gt;
+
+.pull-left[
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="figures/fig_3_wo_genotyping_error.png" alt="source: Kelleher et al., 2019" width="470px" /&gt;
+&lt;p class="caption"&gt;source: Kelleher et al., 2019&lt;/p&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="figures/suppl_fig_8.png" alt="source: Kelleher et al., 2019" width="500px" /&gt;
+&lt;p class="caption"&gt;source: Kelleher et al., 2019&lt;/p&gt;
+&lt;/div&gt;
+]
+
+???
+comparable accuracy (using Kendall-Colijn (KC) metric, lower values indicate greater accuracy)   
+
+and speed when compared to state-of-the-art
+
 ---
 class: center, middle
 

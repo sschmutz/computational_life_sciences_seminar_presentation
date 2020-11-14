@@ -205,7 +205,7 @@ sequencing_cost %>%
     xend = as.Date("2003-04-01"), yend = 43000000, 
     geom = "curve", curvature = -0.3, arrow = arrow(length = unit(3, "mm")), size = 0.8
   ) +
-  annotate(geom = "text", x = as.Date("2001-06-01"), y = 350000, label = "first human genome\ncompleted*", hjust = "left", size = 6) 
+  annotate(geom = "text", x = as.Date("2001-06-01"), y = 350000, label = "first Human Genome\ncompleted*", hjust = "left", size = 6) 
 
 ```
 
@@ -246,13 +246,13 @@ sequencing_cost %>%
     xend = as.Date("2003-04-01"), yend = 43000000, 
     geom = "curve", curvature = -0.3, arrow = arrow(length = unit(3, "mm")), size = 0.8
   ) +
-  annotate(geom = "text", x = as.Date("2001-06-01"), y = 350000, label = "first human genome\ncompleted*", hjust = "left", size = 6) +
+  annotate(geom = "text", x = as.Date("2001-06-01"), y = 350000, label = "first Human Genome\ncompleted*", hjust = "left", size = 6) +
   annotate(
     x = as.Date("2010-01-01"), y = 70000000,
     xend = as.Date("2006-01-01"), yend = 15000000, 
     geom = "curve", curvature = 0.3, arrow = arrow(length = unit(3, "mm")), size = 0.8
   ) +
-  annotate(geom = "text", x = as.Date("2010-02-01"), y = 35000000, label = "introduction of\nhigh throuput sequencing", hjust = "left", size = 6)
+  annotate(geom = "text", x = as.Date("2010-02-01"), y = 35000000, label = "introduction of\nHigh Throuput Sequencing", hjust = "left", size = 6)
 
 ```
 
@@ -433,46 +433,6 @@ Second, haplotypes are arranged and edges (links between nodes) are inferred (tr
 Main thing is: `tsinfer` reconstructs trees (output is tree sequence)
 
 ---
-
-## Comparison to state-of-the-art .pull-right[**Storage Space**]
-
-```{r fig.cap="source: Kelleher et al., 2019", echo=FALSE, out.width="550px", fig.align="center"}
-knitr::include_graphics("figures/fig_1_c.png")
-```
-
-???
-Space needed to store genomic variation data.  
-
-VCF a popular format, stores the variants in matrices (see panel a), the complexity is O(n(nodes/samples) x m(variant sites))  
-
-Tree sequence encoding on the other hand (shown in panel b) is more space efficient, the complexity is O(n(nodes) + m(variant sites) + r(recombinations/new nodes))  
-
-As a result, file size of output remains much lower compared to VCF and is simmilar to Positional Burrows Wheeler Transform (PBWT) another recently developed data structure  
-
----
-
-## Comparison to state-of-the-art .pull-right[**Accuracy** and **Speed**]
-
-<br/>
-
-.pull-left[
-```{r fig.cap="source: Kelleher et al., 2019", echo=FALSE, out.width="470px", fig.align="center"}
-knitr::include_graphics("figures/fig_3_wo_genotyping_error.png")
-```
-]
-
-.pull-right[
-```{r fig.cap="source: Kelleher et al., 2019", echo=FALSE, out.width="500px", fig.align="center"}
-knitr::include_graphics("figures/suppl_fig_8.png")
-```
-]
-
-???
-comparable accuracy (using Kendall-Colijn (KC) metric, lower values indicate greater accuracy)   
-
-and speed when compared to state-of-the-art
-
----
 class: center, middle
 
 # Application example
@@ -555,14 +515,6 @@ There's already ongoing work to implement this by one of the Authors (Wilder Woh
 
 --
 
-### Improved sequencing technologies
-
-???
-accurate long-read sequencing data could improve the method in the future  
-(better phasing)
-
---
-
 ### Possible application for genomes of other Species
 
 .pull-left[ 
@@ -632,6 +584,49 @@ class: center, middle
 - 
 ]
 ]
+
+---
+
+## Comparison to state-of-the-art .pull-right[**Storage Space**]
+
+<br/>
+
+```{r fig.cap="source: Kelleher et al., 2019", echo=FALSE, out.width="800px", fig.align="center"}
+knitr::include_graphics("figures/fig_1_c.png")
+```
+
+???
+Space needed to store genomic variation data.  
+
+VCF a popular format, stores the variants in matrices (see panel a), the complexity is O(n(nodes/samples) x m(variant sites))  
+
+Tree sequence encoding on the other hand (shown in panel b) is more space efficient, the complexity is O(n(nodes) + m(variant sites) + r(recombinations/new nodes))  
+
+As a result, file size of output remains much lower compared to VCF and is simmilar to Positional Burrows Wheeler Transform (PBWT) another recently developed data structure  
+
+---
+
+## Comparison to state-of-the-art .pull-right[**Accuracy** and **Speed**]
+
+<br/>
+
+.pull-left[
+```{r fig.cap="source: Kelleher et al., 2019", echo=FALSE, out.width="470px", fig.align="center"}
+knitr::include_graphics("figures/fig_3_wo_genotyping_error.png")
+```
+]
+
+.pull-right[
+```{r fig.cap="source: Kelleher et al., 2019", echo=FALSE, out.width="500px", fig.align="center"}
+knitr::include_graphics("figures/suppl_fig_8.png")
+```
+]
+
+???
+comparable accuracy (using Kendall-Colijn (KC) metric, lower values indicate greater accuracy)   
+
+and speed when compared to state-of-the-art
+
 ---
 class: center, middle
 
