@@ -27,6 +27,7 @@ DNA sequencing\dotfill & process of determining the order (sequence) of nucleoti
 diploid\dotfill & organism containing two sets of each chromosome \\
 genealogy\dotfill & study of history of organisms (how did they evolve, how are they related) \\
 phylogenetic tree\dotfill & method to visualise evolutionary relationships (see Figure \ref{fig:tree}) \\
+tree sequence\dotfill & set of multiple phylogenetic trees considering that different parts of a genome can have different histories \\
 topology\dotfill & arrangement/shape of a phylogenetic tree \\
 node\dotfill & point/individual within a tree (see Figure \ref{fig:tree}) \\
 edge\dotfill & lines connecting nodes of a tree  (see Figure \ref{fig:tree}) \\
@@ -34,7 +35,6 @@ DNA mutation\dotfill & change in DNA sequence when compared to parent sequence \
 DNA recombination\dotfill & when a DNA molecule gets parts of two different sources \\
 ancestral sequence\dotfill & original (past) DNA sequence of an ancestor \\
 derived sequence\dotfill & DNA sequence where changes happened over time in comparison to the ancestral sequence \\
-tree sequence\dotfill & set of multiple phylogenetic trees considering that different parts of a genome can have different histories \\
 VCF\dotfill & Variant Call Format, common format used in bioinformatics to store differences (variants) in DNA sequences\\
 KC metric\dotfill & Kendall-Colijn metric, compares topologies of trees (how close they are) \\
 GNN\dotfill & Genealogical Nearest Neighbors, composition of neighbors on the tree(s) \\
@@ -67,6 +67,6 @@ Kelleher and collegues present in this article the applicability of an efficient
 
 In addition to beeing accurate, the method presented is also very fast and scalable compared to available state-of-the-art tools.
 
-They demonstrate the functionality by characterizing data from three medium to large human genome datasets.
+They demonstrate the functionality by analyzing data from three medium to large human genome datasets.
 
 ## Reference
