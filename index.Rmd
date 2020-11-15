@@ -549,15 +549,6 @@ They even argued that it's therefore hypothetically even possible to "Infer the 
 
 ---
 
-background-image: url(figures/infer_the_ancestry_of_everyone.png)
-background-position: center
-background-size: 40%
-
-???
-With that modest goal, I'd like to finish and am happy to receive questions
-
----
-
 ---
 class: center, middle
 
