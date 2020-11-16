@@ -18,3 +18,91 @@ Publisher: Nature Publishing Group},
 	pages = {1330--1338},
 	file = {Full Text PDF:/Users/stefan_schmutz/Zotero/storage/958B9Y2J/Kelleher et al. - 2019 - Inferring whole-genome histories in large populati.pdf:application/pdf;Snapshot:/Users/stefan_schmutz/Zotero/storage/ABQ54N8B/s41588-019-0483-y.html:text/html}
 }
+
+@article{kelleher_efficient_2018,
+	title = {Efficient pedigree recording for fast population genetics simulation},
+	volume = {14},
+	issn = {1553-7358},
+	url = {https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006581},
+	doi = {10.1371/journal.pcbi.1006581},
+	abstract = {In this paper we describe how to efficiently record the entire genetic history of a population in forwards-time, individual-based population genetics simulations with arbitrary breeding models, population structure and demography. This approach dramatically reduces the computational burden of tracking individual genomes by allowing us to simulate only those loci that may affect reproduction (those having non-neutral variants). The genetic history of the population is recorded as a succinct tree sequence as introduced in the software package msprime, on which neutral mutations can be quickly placed afterwards. Recording the results of each breeding event requires storage that grows linearly with time, but there is a great deal of redundancy in this information. We solve this storage problem by providing an algorithm to quickly ‘simplify’ a tree sequence by removing this irrelevant history for a given set of genomes. By periodically simplifying the history with respect to the extant population, we show that the total storage space required is modest and overall large efficiency gains can be made over classical forward-time simulations. We implement a general-purpose framework for recording and simplifying genealogical data, which can be used to make simulations of any population model more efficient. We modify two popular forwards-time simulation frameworks to use this new approach and observe efficiency gains in large, whole-genome simulations of one to two orders of magnitude. In addition to speed, our method for recording pedigrees has several advantages: (1) All marginal genealogies of the simulated individuals are recorded, rather than just genotypes. (2) A population of N individuals with M polymorphic sites can be stored in O(N log N + M) space, making it feasible to store a simulation’s entire final generation as well as its history. (3) A simulation can easily be initialized with a more efficient coalescent simulation of deep history. The software for recording and processing tree sequences is named tskit.},
+	language = {en},
+	number = {11},
+	urldate = {2020-10-17},
+	journal = {PLOS Computational Biology},
+	author = {Kelleher, Jerome and Thornton, Kevin R. and Ashander, Jaime and Ralph, Peter L.},
+	month = jan,
+	year = {2018},
+	note = {Publisher: Public Library of Science},
+	keywords = {Phylogenetic analysis, Algorithms, Genomics, Natural selection, Population genetics, Population size, Simulation and modeling, Trees},
+	pages = {e1006581},
+	file = {Full Text PDF:/Users/stefan_schmutz/Zotero/storage/RDQ55CE4/Kelleher et al. - 2018 - Efficient pedigree recording for fast population g.pdf:application/pdf;Snapshot:/Users/stefan_schmutz/Zotero/storage/HZSW2EJH/article.html:text/html}
+}
+
+@article{kelleher_efficient_2016,
+	title = {Efficient {Coalescent} {Simulation} and {Genealogical} {Analysis} for {Large} {Sample} {Sizes}},
+	volume = {12},
+	issn = {1553-7358},
+	url = {https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004842},
+	doi = {10.1371/journal.pcbi.1004842},
+	abstract = {A central challenge in the analysis of genetic variation is to provide realistic genome simulation across millions of samples. Present day coalescent simulations do not scale well, or use approximations that fail to capture important long-range linkage properties. Analysing the results of simulations also presents a substantial challenge, as current methods to store genealogies consume a great deal of space, are slow to parse and do not take advantage of shared structure in correlated trees. We solve these problems by introducing sparse trees and coalescence records as the key units of genealogical analysis. Using these tools, exact simulation of the coalescent with recombination for chromosome-sized regions over hundreds of thousands of samples is possible, and substantially faster than present-day approximate methods. We can also analyse the results orders of magnitude more quickly than with existing methods.},
+	language = {en},
+	number = {5},
+	urldate = {2020-11-16},
+	journal = {PLOS Computational Biology},
+	author = {Kelleher, Jerome and Etheridge, Alison M. and McVean, Gilean},
+	month = apr,
+	year = {2016},
+	note = {Publisher: Public Library of Science},
+	keywords = {Algorithms, Genome complexity, Genomics, Haplotypes, Leaves, Phylogenetic analysis, Simulation and modeling, Trees},
+	pages = {e1004842},
+	file = {Full Text PDF:/Users/stefan_schmutz/Zotero/storage/WGGQHD9C/Kelleher et al. - 2016 - Efficient Coalescent Simulation and Genealogical A.pdf:application/pdf;Snapshot:/Users/stefan_schmutz/Zotero/storage/SA784SDC/article.html:text/html}
+}
+
+@misc{wohns_phyloseminar_2020,
+	title = {Phyloseminar \#96: {Wilder} {Wohns} ({Oxford})},
+	shorttitle = {Phyloseminar \#96},
+	url = {https://www.youtube.com/watch?v=YrZTKjLzZY0},
+	abstract = {Tree sequence fundamentals
+
+The tree sequence data structure is a concise encoding of whole-genome ancestry and sequence data, with a rapidly maturing software ecosystem. Tree sequences encode the genealogical history of individuals subject to recombination and gene conversion, providing an efficient means of working with phylogenetic networks and other applications with a linear sequence of correlated trees. The tskit (tree sequence toolkit) library is a comprehensive framework for navigating and manipulating tree sequences using Python and C APIs and also hosts a unified interface for efficiently calculating a growing number of summary statistics. The ecosystem developing around this central technology now includes several genome simulators, a highly-scalable method for inferring ancestry from data, tsinfer, and an efficient method for dating ancestral nodes in a tree sequence topology, tsdate. In this primer session, I will introduce tskit and the tree sequence data structure as well as use downloadable Jupyter Notebooks to demonstrate the simulation of genomic datasets with msprime and the calculation of population genetic statistics with tskit.},
+	urldate = {2020-10-19},
+	month = apr,
+	year = {2020}
+}
+
+@misc{wong_phyloseminar_2020,
+	title = {Phyloseminar \#97: {Yan} {Wong} ({Oxford})},
+	shorttitle = {Phyloseminar \#97},
+	url = {https://www.youtube.com/watch?v=yB4uSle66Pw},
+	abstract = {Efficient algorithms for inferring and dating tree sequences
+
+Inferring evolutionary trees from genetic data is a classic and hard problem in biology. We have recently published an algorithm for estimating gene tree topologies along a genome which scales to millions of trees with millions of tips. We have also just released a fast method to date (that is, to infer branch lengths for) these trees.
+
+Both methods are based on the concept of a "tree sequence": a recently-introduced efficient format to store the correlated evolutionary trees that describe the full genomic ancestry of a set of genomes. While initially developed to describe the genetic history of individuals within a species, tree sequences are also starting to be used to analyse relationships between individuals from multiple closely related species.
+
+The topology estimation method, called "tsinfer" (tree sequence inference), is composed of two heuristic steps. The first step uses the distribution of mutations to estimate partial fragments of ancestral DNA sequence, roughly ordering them by age. The second step uses a highly optimised tree-based HMM algorithm to match fragments against each other and build up a tree-like structure at each position in the genome. The resulting structure can be thought of as a large network of nodes connected by edges, where each edge connects a child node to a parent node over a specific portion or "span" of the genome (this is similar to the Ancestral Recombination Graph, or ARG).
+
+The challenge of estimating branch lengths on trees in a tree sequence can be restated in terms of placing dates on tree sequence nodes. Our dating method, "tsdate", treats the date of each ancestral node as a hidden state, and estimates the probability of different node ages by considering the inferred tree sequence as a Bayesian network. In particular, each node is given a prior probability of being in one of a fixed number of time slices, then a two-pass algorithm iterates over all the edges in the tree sequence, updating these priors to take account of the mutations and span associated with each edge.
+
+In this seminar I will describe the workings of both the tsinfer and tsdate algorithms, demonstrate their speed and accuracy, discuss their limitations, and show their application to a variety of genetic data sets, including ones with historically sampled individuals, and with multiple species present. I will also describe a new topology-based measure, based on genealogical nearest neighbours, which naturally summarises genome-wide relationships between individuals in a tree sequence.},
+	urldate = {2020-11-16},
+	month = may,
+	year = {2020}
+}
+
+@Manual{xaringan_2020,
+	title = {xaringan: Presentation Ninja},
+	author = {Yihui Xie},
+	year = {2020},
+	note = {R package version 0.18},
+	url = {https://CRAN.R-project.org/package=xaringan},
+}
+
+@Manual{xaringanExtra_2020,
+	title = {xaringanExtra: Extras And Extensions for Xaringan Slides},
+	author = {Garrick Aden-Buie},
+	year = {2020},
+	note = {R package version 0.2.3.9000},
+	url = {https://github.com/gadenbuie/xaringanExtra},
+}
